@@ -1,0 +1,9 @@
+
+label.done {
+    text-decoration: line-through;
+}
+
+span.checkbox__label {
+    font-size: inherit;
+    color: #3c3c3c;
+}

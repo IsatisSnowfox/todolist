@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - @localhost" uuid="aaea284c-c87d-433a-8034-97e9bb5b2fa2">
+    <database-info product="MySQL" version="5.5.42" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5"/>
+  </data-source>
+  <data-source name="MySQL - todolist@localhost" uuid="49287933-ee4a-4337-825f-ec8915217483">
+    <database-info product="MySQL" version="5.5.42" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="todolist"/>
+      <table id="2" parent="1" name="task_user"/>
+      <table id="3" parent="1" name="tasks"/>
+      <table id="4" parent="1" name="users"/>
+      <column id="5" parent="2" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="6" parent="2" name="task_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="7" parent="2" name="user_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <index id="8" parent="2" name="task_user_task_id_index">
+        <columns>task_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="9" parent="2" name="task_user_user_id_index">
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="10" parent="2" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="11" parent="2" name="task_user_tasks_id_fk">
+        <columns>task_id</columns>
+        <ref-key>~.tasks.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="12" parent="2" name="task_user_users_id_fk">
+        <columns>user_id</columns>
+        <ref-key>~.users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="13" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="14" parent="3" name="description">
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="15" parent="3" name="is_done">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(3) unsigned</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <key id="16" parent="3" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="17" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11) unsigned</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="18" parent="4" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <column id="19" parent="4" name="first_name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <column id="20" parent="4" name="email">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <column id="21" parent="4" name="password">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+        <default-expression>&apos;&apos;</default-expression>
+      </column>
+      <key id="22" parent="4" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
